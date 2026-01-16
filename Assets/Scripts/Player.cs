@@ -5,10 +5,30 @@ public class Player : MonoBehaviour
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private float rotationSpeed = 10f;
     [SerializeField] private GameInput gameInput;
+    [SerializeField] private LayerMask countersLayerMask;
 
     private bool isWalking;
     
     private void Update()
+    {
+        HandleMovement();
+        HandleInteractions();
+    }
+
+    private void HandleInteractions()
+    {
+        float interactDistance = 2;
+        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit raycastHit, interactDistance, countersLayerMask))
+        {
+            if (raycastHit.transform.TryGetComponent(out ClearCounter clearCounter))
+            {
+                clearCounter.Interact();
+            }   
+        }
+ 
+    }
+
+    private void HandleMovement()
     {
         Vector2 inputVector = gameInput.GetMovementVectorNormalized();
         
@@ -34,17 +54,17 @@ public class Player : MonoBehaviour
             }
             else
             {
-                 // cannot move only on the X
+                // cannot move only on the X
                  
-                 // attempt only Z movement
-                 Vector3 moveDirZ = new Vector3(moveDir.z, 0, 0).normalized;
-                 canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirZ, moveDistance);
+                // attempt only Z movement
+                Vector3 moveDirZ = new Vector3(moveDir.z, 0, 0).normalized;
+                canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirZ, moveDistance);
 
-                 if (canMove)
-                 {
-                     // can move on the Z
-                     moveDir = moveDirZ;
-                 }
+                if (canMove)
+                {
+                    // can move on the Z
+                    moveDir = moveDirZ;
+                }
             }
         }
         if (canMove)
@@ -61,4 +81,6 @@ public class Player : MonoBehaviour
     {
         return isWalking;
     }
+    
+    
 }
