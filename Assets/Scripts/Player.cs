@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -8,14 +9,23 @@ public class Player : MonoBehaviour
     [SerializeField] private LayerMask countersLayerMask;
 
     private bool isWalking;
-    
+
+    private void Start()
+    {
+        gameInput.OnInteractAction += GameInput_OnInteractAction; // Add the Event listener
+    }
+
+    private void GameInput_OnInteractAction(object sender, EventArgs e)
+    {
+        HandleInteraction();
+    }
+ 
     private void Update()
     {
         HandleMovement();
-        HandleInteractions();
     }
 
-    private void HandleInteractions()
+    private void HandleInteraction()
     {
         float interactDistance = 2;
         if (Physics.Raycast(transform.position, transform.forward, out RaycastHit raycastHit, interactDistance, countersLayerMask))
@@ -25,7 +35,6 @@ public class Player : MonoBehaviour
                 clearCounter.Interact();
             }   
         }
- 
     }
 
     private void HandleMovement()
