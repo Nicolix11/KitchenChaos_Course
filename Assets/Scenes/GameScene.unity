@@ -783,6 +783,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 648671324418092907, guid: d6c00ef36a702c04796d54c55c86f8ec, type: 3}
+      propertyPath: tomatoPrefab
+      value: 
+      objectReference: {fileID: 6430069280058863087, guid: 6369d5da2681a3840af2d468ad0cd03a, type: 3}
+    - target: {fileID: 648671324418092907, guid: d6c00ef36a702c04796d54c55c86f8ec, type: 3}
+      propertyPath: kitchenObjectSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 90de382783d34804c842d8d50fcb5766, type: 2}
     - target: {fileID: 4776345494766447818, guid: d6c00ef36a702c04796d54c55c86f8ec, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -896,6 +904,64 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 829184420}
   m_SourcePrefab: {fileID: 100100000, guid: 1c5dda3c7cd3cf742afcade5419faeab, type: 3}
+--- !u!1001 &6622918582425979630
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2764539365548548408, guid: 05416da7c69670c4c9a5fdcd3837ab9b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.081
+      objectReference: {fileID: 0}
+    - target: {fileID: 2764539365548548408, guid: 05416da7c69670c4c9a5fdcd3837ab9b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.185
+      objectReference: {fileID: 0}
+    - target: {fileID: 2764539365548548408, guid: 05416da7c69670c4c9a5fdcd3837ab9b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.868
+      objectReference: {fileID: 0}
+    - target: {fileID: 2764539365548548408, guid: 05416da7c69670c4c9a5fdcd3837ab9b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2764539365548548408, guid: 05416da7c69670c4c9a5fdcd3837ab9b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2764539365548548408, guid: 05416da7c69670c4c9a5fdcd3837ab9b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2764539365548548408, guid: 05416da7c69670c4c9a5fdcd3837ab9b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2764539365548548408, guid: 05416da7c69670c4c9a5fdcd3837ab9b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2764539365548548408, guid: 05416da7c69670c4c9a5fdcd3837ab9b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2764539365548548408, guid: 05416da7c69670c4c9a5fdcd3837ab9b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6430069280058863087, guid: 05416da7c69670c4c9a5fdcd3837ab9b, type: 3}
+      propertyPath: m_Name
+      value: Tomato
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 6854112387092220923, guid: 05416da7c69670c4c9a5fdcd3837ab9b, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 05416da7c69670c4c9a5fdcd3837ab9b, type: 3}
 --- !u!1001 &8372076203961442433
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -904,6 +970,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 648671324418092907, guid: d6c00ef36a702c04796d54c55c86f8ec, type: 3}
+      propertyPath: kitchenObjectSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 94dde13d779c9c847b5ee65531fc186f, type: 2}
     - target: {fileID: 5907764639018688291, guid: d6c00ef36a702c04796d54c55c86f8ec, type: 3}
       propertyPath: m_Name
       value: ClearCounter
@@ -966,3 +1036,4 @@ SceneRoots:
   - {fileID: 1661696466}
   - {fileID: 8372076203961442433}
   - {fileID: 2078105958}
+  - {fileID: 6622918582425979630}
