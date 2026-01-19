@@ -704,12 +704,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c534aecb845fdfe4db5cf283508c5c1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
-  moveSpeed: 7
-  rotationSpeed: 10
   gameInput: {fileID: 1661696465}
   countersLayerMask:
     serializedVersion: 2
     m_Bits: 128
+  selectedCounter: {fileID: 0}
+  rotationSpeed: 10
+  moveSpeed: 7
 --- !u!4 &1073136558
 Transform:
   m_ObjectHideFlags: 0
@@ -778,6 +779,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 591932965499915055, guid: d6c00ef36a702c04796d54c55c86f8ec, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4776345494766447818, guid: d6c00ef36a702c04796d54c55c86f8ec, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5907764639018688291, guid: d6c00ef36a702c04796d54c55c86f8ec, type: 3}
       propertyPath: m_Name
       value: ClearCounter (1)

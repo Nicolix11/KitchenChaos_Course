@@ -3,12 +3,30 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 7f;
-    [SerializeField] private float rotationSpeed = 10f;
+    public static Player Instance { get; private set; } 
+    
+    public event EventHandler <OnSelectedCounterChangedEventArgs> OnSelectedCounterChanged;
+    public class OnSelectedCounterChangedEventArgs : EventArgs
+    {
+        public ClearCounter selectedCounter;
+    }
+    
     [SerializeField] private GameInput gameInput;
     [SerializeField] private LayerMask countersLayerMask;
-
+    [SerializeField] private ClearCounter selectedCounter;
+    
+    [SerializeField] private float rotationSpeed = 10f;
+    [SerializeField] private float moveSpeed = 7f;
     private bool isWalking;
+
+
+    private void Awake()
+    {
+        if (Instance == null)
+        { 
+            Instance = this;
+        }
+    }
 
     private void Start()
     {
@@ -17,12 +35,16 @@ public class Player : MonoBehaviour
 
     private void GameInput_OnInteractAction(object sender, EventArgs e)
     {
-        HandleInteraction();
+        if (selectedCounter != null)
+        {
+            selectedCounter.Interact();
+        }
     }
  
     private void Update()
     {
         HandleMovement();
+        HandleInteraction();
     }
 
     private void HandleInteraction()
@@ -32,9 +54,21 @@ public class Player : MonoBehaviour
         {
             if (raycastHit.transform.TryGetComponent(out ClearCounter clearCounter))
             {
-                clearCounter.Interact();
-            }   
+                if (clearCounter != selectedCounter)
+                {
+                    SetSelectedCounter(clearCounter);
+                }
+            }
+            else
+            {
+                SetSelectedCounter(null);
+            }
         }
+        else
+        {
+            SetSelectedCounter(null);
+        }
+        Debug.Log(selectedCounter);
     }
 
     private void HandleMovement()
@@ -90,6 +124,14 @@ public class Player : MonoBehaviour
     {
         return isWalking;
     }
-    
-    
+
+    private void SetSelectedCounter(ClearCounter selectedCounter)
+    {
+        this.selectedCounter = selectedCounter;
+        
+        OnSelectedCounterChanged?.Invoke(this, new OnSelectedCounterChangedEventArgs
+        {
+            selectedCounter = selectedCounter
+        });
+    }
 }
