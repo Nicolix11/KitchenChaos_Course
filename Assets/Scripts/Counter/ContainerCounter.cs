@@ -10,10 +10,13 @@ public class ContainerCounter : BaseCounter
     
     public override void Interact(Player player)
     {
-            // creates new Object when Empty
+        if (!player.HasKitchenObject())
+        {
+            // Spawn Object when Player is not carrying 
             GameObject kitchenObjectTransform = Instantiate(kitchenObjectSO.prefab);
             kitchenObjectTransform.GetComponent<KitchenObject>().SetKitchenObjectParent(player);
             
             OnPlayerGrabbedObject.Invoke(this, EventArgs.Empty);
+        }
     }
 }

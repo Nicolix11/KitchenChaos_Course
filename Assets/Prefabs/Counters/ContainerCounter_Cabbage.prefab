@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 8820119531426773011}
   - component: {fileID: 6845965651804279947}
   m_Layer: 7
-  m_Name: ContainerCounter
+  m_Name: ContainerCounter_Cabbage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ContainerCounter
   counterTopPoint: {fileID: 8339110634370092564}
-  kitchenObjectSO: {fileID: 11400000, guid: 94dde13d779c9c847b5ee65531fc186f, type: 2}
+  kitchenObjectSO: {fileID: 11400000, guid: 0e5e55e30a97a174c84575e6604354dc, type: 2}
 --- !u!1001 &1379717092549676454
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -154,6 +154,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4841286013473667211, guid: 9a9137fa2b035d34e881701d2c178192, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e1c23b5aded59d84da30738d3267a6c9, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -265,6 +269,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4841286013473667211, guid: 9a9137fa2b035d34e881701d2c178192, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e1c23b5aded59d84da30738d3267a6c9, type: 3}
     - target: {fileID: 5261771210811040880, guid: 9a9137fa2b035d34e881701d2c178192, type: 3}
       propertyPath: m_IsActive
       value: 0
