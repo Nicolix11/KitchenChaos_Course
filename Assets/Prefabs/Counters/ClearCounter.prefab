@@ -86,8 +86,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.5, y: 1.5, z: 1.5}
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Size: {x: 1.5, y: 1.2970442, z: 1.4359088}
+  m_Center: {x: 0, y: 0.6014779, z: 0.032045603}
 --- !u!114 &648671324418092907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8b7a58f2b07eb74bb8545397b3bdc68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClearCounter
-  tomatoPrefab: {fileID: 6430069280058863087, guid: 05416da7c69670c4c9a5fdcd3837ab9b, type: 3}
+  kitchenObjectSO: {fileID: 0}
   counterTopPoint: {fileID: 8339110634370092564}
 --- !u!1001 &3004882352392640904
 PrefabInstance:
@@ -274,8 +274,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e16ea14f0e83404ca0b03f80ce2598b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectedCounterVisual
-  clearCounter: {fileID: 648671324418092907}
-  visualGameObject: {fileID: 591932965499915055}
+  baseCounter: {fileID: 648671324418092907}
+  visualGameObjectArray:
+  - {fileID: 591932965499915055}
 --- !u!4 &4776345494766447819 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4589716710238282923, guid: 0004cb1e11ad014419b943c7da960724, type: 3}
