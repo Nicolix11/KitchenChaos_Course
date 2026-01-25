@@ -24,16 +24,19 @@ public class CuttingCounter : BaseCounter
             // there is no kitchenObject on the counter 
             if (player.HasKitchenObject())
             {
-                // player is carrying KitchenObject
-                player.GetKitchenObject().SetKitchenObjectParent(this);
-                cuttingProgress = 0;
-                
-                CuttingRecipeSO cuttingRecipeSO = getCuttingRecipeSoWithInput(GetKitchenObject().GetKitchenObjectSO());
-                
-                OnProgressChanged?.Invoke(this, new OnProgressChangedEventArgs
+                if (HasRecipeWithInput(player.GetKitchenObject().GetKitchenObjectSO()))
                 {
-                    progressNormalized = (float)cuttingProgress / cuttingRecipeSO.cuttingProgressMax
-                });
+                    // player is carrying KitchenObject
+                    player.GetKitchenObject().SetKitchenObjectParent(this);
+                    cuttingProgress = 0;
+                    
+                    CuttingRecipeSO cuttingRecipeSO = getCuttingRecipeSoWithInput(GetKitchenObject().GetKitchenObjectSO());
+                    
+                    OnProgressChanged?.Invoke(this, new OnProgressChangedEventArgs
+                    {
+                        progressNormalized = (float)cuttingProgress / cuttingRecipeSO.cuttingProgressMax
+                    });
+                }
             }
             else
             {
