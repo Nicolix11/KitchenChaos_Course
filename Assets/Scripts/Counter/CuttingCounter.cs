@@ -67,26 +67,28 @@ public class CuttingCounter : BaseCounter, IHasProgress
         if (HasKitchenObject())
         {
             //There is a kitchen object on the counter
-            cuttingProgress++;
-            
-            OnCut?.Invoke(this, EventArgs.Empty);
-            
-            CuttingRecipeSO cuttingRecipeSO = getCuttingRecipeSoWithInput(GetKitchenObject().GetKitchenObjectSO());
-
-            OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
+            if (HasRecipeWithInput(GetKitchenObject().GetKitchenObjectSO()))
             {
-                progressNormalized = (float)cuttingProgress / cuttingRecipeSO.cuttingProgressMax // error Solution ? 
-            });
-            
-            if (cuttingProgress >= cuttingRecipeSO.cuttingProgressMax)
-            {
-                KitchenObjectSO outputKitchenObjectSo = GetOutputFromInput(GetKitchenObject().GetKitchenObjectSO());
+                cuttingProgress++;
                 
-                GetKitchenObject().DestroySelf();
+                OnCut?.Invoke(this, EventArgs.Empty);
+                
+                CuttingRecipeSO cuttingRecipeSO = getCuttingRecipeSoWithInput(GetKitchenObject().GetKitchenObjectSO());
 
-                KitchenObject.SpawnKitchenObject(outputKitchenObjectSo, this);
+                OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
+                {
+                    progressNormalized = (float)cuttingProgress / cuttingRecipeSO.cuttingProgressMax
+                });
+                    
+                if (cuttingProgress >= cuttingRecipeSO.cuttingProgressMax)
+                {
+                    KitchenObjectSO outputKitchenObjectSo = GetOutputFromInput(GetKitchenObject().GetKitchenObjectSO());
+                        
+                    GetKitchenObject().DestroySelf();
+
+                    KitchenObject.SpawnKitchenObject(outputKitchenObjectSo, this);
+                }
             }
-            
         }
     }
 
