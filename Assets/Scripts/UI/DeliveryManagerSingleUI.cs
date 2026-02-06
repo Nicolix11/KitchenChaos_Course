@@ -15,6 +15,7 @@ public class DeliveryManagerSingleUI : MonoBehaviour
         iconTemplate.gameObject.SetActive(false);
     }
 
+    // ReSharper disable Unity.PerformanceAnalysis
     public void SetRecipeSO(RecipeSO recipeSO)
     {
         recipeNameText.text = recipeSO.recipeName;
