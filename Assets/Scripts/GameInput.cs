@@ -4,18 +4,38 @@ using UnityEngine.InputSystem;
 
 public class GameInput : MonoBehaviour
 {
+    public static GameInput Instance { get; private set; }
+    
     public event EventHandler OnInteractAction; // Eventhandler
     public event EventHandler OnInteractAlternateAction;
+    public event EventHandler OnPauseAction;
     
     private PlayerInputActions playerInputActions;
     
     private void Awake()
     {
+        Instance = this;
+        
         playerInputActions  = new PlayerInputActions(); // create a playerInputObject
         playerInputActions.Player.Enable(); // activate the action map
 
         playerInputActions.Player.Interact.performed += Interact_Performed; // create an event listener
         playerInputActions.Player.InteractAlternate.performed += InteractAlternate_Performed;
+        playerInputActions.Player.Pause.performed += Pause_Performed;
+    }
+
+    private void OnDestroy()
+    {
+        playerInputActions.Player.Interact.performed -= Interact_Performed; // create an event listener
+        playerInputActions.Player.InteractAlternate.performed -= InteractAlternate_Performed;
+        playerInputActions.Player.Pause.performed -= Pause_Performed;
+        
+        playerInputActions.Dispose();
+    }
+
+    private void Pause_Performed(InputAction.CallbackContext obj)
+    {
+        OnPauseAction?.Invoke(this, EventArgs.Empty);
     }
 
     private void InteractAlternate_Performed(InputAction.CallbackContext obj)
